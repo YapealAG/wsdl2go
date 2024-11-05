@@ -116,9 +116,7 @@ func doRoundTrip(c *Client, setHeaders func(*http.Request), in, out Message) err
 	if req.NSAttr == "" {
 		req.NSAttr = c.URL
 	}
-	if req.TNSAttr == "" {
-		req.TNSAttr = req.NSAttr
-	}
+
 	var b bytes.Buffer
 	err := xml.NewEncoder(&b).Encode(req)
 	if err != nil {
