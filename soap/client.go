@@ -243,9 +243,9 @@ func (e *HTTPError) Error() string {
 
 // Envelope is a SOAP envelope.
 type Envelope struct {
-	XMLName      xml.Name `xml:"soapenv:Envelope"`
+	XMLName      xml.Name `xml:"soapenv:Envelope"` // default name
 	EnvelopeAttr string   `xml:"xmlns:soapenv,attr"`
-	NSAttr       string   `xml:"xmlns:ns,attr"`
+	NSAttr       string   `xml:"xmlns,attr"` // use default names space
 	TNSAttr      string   `xml:"xmlns:tns,attr,omitempty"`
 	URNAttr      string   `xml:"xmlns:urn,attr,omitempty"`
 	XSIAttr      string   `xml:"xmlns:xsi,attr,omitempty"`
