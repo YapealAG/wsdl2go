@@ -30,10 +30,10 @@ type RoundTripper interface {
 
 // Message is an opaque type used by the RoundTripper to carry XML
 // documents for SOAP.
-type Message interface{}
+type Message any
 
 // Header is an opaque type used as the SOAP Header element in requests.
-type Header interface{}
+type Header any
 
 // AuthHeader is a Header to be encoded as the SOAP Header element in
 // requests, to convey credentials for authentication.
@@ -50,6 +50,8 @@ type Client struct {
 	Namespace              string               // SOAP Namespace
 	URNamespace            string               // Uniform Resource Namespace
 	ThisNamespace          string               // SOAP This-Namespace (tns)
+	TNSAttr                string               // SOAP This-Namespace (tns)
+	XSIAttr                string               // SOAP This-Namespace (xsi)
 	ExcludeActionNamespace bool                 // Include Namespace to SOAP Action header
 	Envelope               string               // Optional SOAP Envelope
 	Header                 Header               // Optional SOAP Header
@@ -102,8 +104,8 @@ func doRoundTrip(c *Client, setHeaders func(*http.Request), in, out Message) err
 		EnvelopeAttr: c.Envelope,
 		URNAttr:      c.URNamespace,
 		NSAttr:       c.Namespace,
-		TNSAttr:      c.ThisNamespace,
-		XSIAttr:      XSINamespace,
+		TNSAttr:      c.TNSAttr,
+		XSIAttr:      c.XSIAttr,
 		Header:       c.Header,
 		Body:         in,
 	}
@@ -241,12 +243,12 @@ func (e *HTTPError) Error() string {
 
 // Envelope is a SOAP envelope.
 type Envelope struct {
-	XMLName      xml.Name `xml:"SOAP-ENV:Envelope"`
-	EnvelopeAttr string   `xml:"xmlns:SOAP-ENV,attr"`
+	XMLName      xml.Name `xml:"soapenv:Envelope"`
+	EnvelopeAttr string   `xml:"xmlns:soapenv,attr"`
 	NSAttr       string   `xml:"xmlns:ns,attr"`
 	TNSAttr      string   `xml:"xmlns:tns,attr,omitempty"`
 	URNAttr      string   `xml:"xmlns:urn,attr,omitempty"`
 	XSIAttr      string   `xml:"xmlns:xsi,attr,omitempty"`
-	Header       Message  `xml:"SOAP-ENV:Header"`
-	Body         Message  `xml:"SOAP-ENV:Body"`
+	Header       Message  `xml:"soapenv:Header"`
+	Body         Message  `xml:"soapenv:Body"`
 }
