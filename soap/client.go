@@ -60,6 +60,7 @@ type Client struct {
 	Pre                    func(*http.Request)  // Optional hook to modify outbound requests
 	Post                   func(*http.Response) // Optional hook to snoop inbound responses
 	Ctx                    context.Context      // Optional variable to allow Context Tracking.
+	UsedNameSpaces         map[string]string    // Optional map to store used namespaces
 }
 
 // XMLTyper is an abstract interface for types that can set an XML type.
@@ -115,6 +116,42 @@ func doRoundTrip(c *Client, setHeaders func(*http.Request), in, out Message) err
 	}
 	if req.NSAttr == "" {
 		req.NSAttr = c.URL
+	}
+
+	for k, v := range c.UsedNameSpaces {
+		switch k {
+
+		case "tns0":
+			req.TNS0 = v
+		case "tns1":
+			req.TNS1 = v
+		case "tns2":
+			req.TNS2 = v
+		case "tns3":
+			req.TNS3 = v
+		case "tns4":
+			req.TNS4 = v
+		case "tns5":
+			req.TNS5 = v
+		case "tns6":
+			req.TNS6 = v
+		case "tns7":
+			req.TNS7 = v
+		case "tns8":
+			req.TNS8 = v
+		case "tns9":
+			req.TNS9 = v
+		case "tns10":
+			req.TNS10 = v
+		case "tns11":
+			req.TNN11 = v
+		case "tns12":
+			req.TNS12 = v
+		case "tns13":
+			req.TNS13 = v
+		case "tns14":
+			req.TNS14 = v
+		}
 	}
 
 	var b bytes.Buffer
@@ -249,4 +286,20 @@ type Envelope struct {
 	XSIAttr      string   `xml:"xmlns:xsi,attr,omitempty"`
 	Header       Message  `xml:"soapenv:Header"`
 	Body         Message  `xml:"soapenv:Body"`
+
+	TNS0  string `xml:"xmlns:tns0,attr,omitempty"`
+	TNS1  string `xml:"xmlns:tns1,attr,omitempty"`
+	TNS2  string `xml:"xmlns:tns2,attr,omitempty"`
+	TNS3  string `xml:"xmlns:tns3,attr,omitempty"`
+	TNS4  string `xml:"xmlns:tns4,attr,omitempty"`
+	TNS5  string `xml:"xmlns:tns5,attr,omitempty"`
+	TNS6  string `xml:"xmlns:tns6,attr,omitempty"`
+	TNS7  string `xml:"xmlns:tns7,attr,omitempty"`
+	TNS8  string `xml:"xmlns:tns8,attr,omitempty"`
+	TNS9  string `xml:"xmlns:tns9,attr,omitempty"`
+	TNS10 string `xml:"xmlns:tns10,attr,omitempty"`
+	TNN11 string `xml:"xmlns:tns11,attr,omitempty"`
+	TNS12 string `xml:"xmlns:tns12,attr,omitempty"`
+	TNS13 string `xml:"xmlns:tns13,attr,omitempty"`
+	TNS14 string `xml:"xmlns:tns14,attr,omitempty"`
 }

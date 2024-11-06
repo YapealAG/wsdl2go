@@ -203,7 +203,7 @@ func (ge *goEncoder) encode(w io.Writer, d *wsdl.Definitions) error {
 
 	ge.usedNameSpaceMap = make(map[string]string)
 	for k, v := range d.Namespaces {
-		if !strings.HasPrefix(k, "tns") {
+		if !strings.HasPrefix(k, "tns") || len(k) < 4 {
 			continue
 		}
 		ge.usedNameSpaceMap[v] = k
@@ -325,6 +325,8 @@ func (ge *goEncoder) importSchema(d *wsdl.Definitions) error {
 
 // TODO structure name names
 
+var nsCount int
+
 func addNameSpace(union map[string]string, ns string, nsURI string) {
 	existing, exists := union[ns]
 	if exists {
@@ -333,7 +335,8 @@ func addNameSpace(union map[string]string, ns string, nsURI string) {
 			return
 		}
 
-		ns = ns + strconv.Itoa(len(union))
+		ns = ns + strconv.Itoa(nsCount)
+		nsCount++
 	}
 	union[ns] = nsURI
 }
