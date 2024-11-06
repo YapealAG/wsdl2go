@@ -87,6 +87,7 @@ type goEncoder struct {
 	needsExtPkg       map[string]bool
 	importedSchemas   map[string]bool
 	usedNamespaces    map[string]string
+	usedNameSpaceMap  map[string]string
 
 	// localNamespace allows overriding of namespace in XMLName
 	localNamespace string
@@ -197,7 +198,17 @@ func (ge *goEncoder) Encode(d *wsdl.Definitions) error {
 func (ge *goEncoder) encode(w io.Writer, d *wsdl.Definitions) error {
 	ge.unionSchemasData(d, &d.Schema)
 	err := ge.importParts(d)
+
 	ge.usedNamespaces = d.Namespaces
+
+	ge.usedNameSpaceMap = make(map[string]string)
+	for k, v := range d.Namespaces {
+		if !strings.HasPrefix(k, "tns") {
+			continue
+		}
+		ge.usedNameSpaceMap[v] = k
+	}
+
 	if err != nil {
 		return fmt.Errorf("wsdl import: %v", err)
 	}
@@ -244,6 +255,18 @@ func (ge *goEncoder) encode(w io.Writer, d *wsdl.Definitions) error {
 		ge.writeComments(w, "Namespace", "")
 		fmt.Fprintf(w, "var Namespace = %q\n\n", d.TargetNamespace)
 	}
+
+	if len(ge.usedNameSpaceMap) > 0 {
+		ge.writeComments(w, "usedNameSpaceMap", "")
+
+		fmt.Fprint(w, "var UsedNamespaces = map[string]string{\n")
+		for k, v := range ge.usedNameSpaceMap {
+			fmt.Fprintf(w, "%q: %q,\n", v, k)
+		}
+		fmt.Fprint(w, "}\n\n")
+
+	}
+
 	_, err = io.Copy(w, &b)
 	return err
 }
@@ -300,9 +323,27 @@ func (ge *goEncoder) importSchema(d *wsdl.Definitions) error {
 	return nil
 }
 
+// TODO structure name names
+
+func addNameSpace(union map[string]string, ns string, nsURI string) {
+	existing, exists := union[ns]
+	if exists {
+		if existing == nsURI {
+			// already known
+			return
+		}
+
+		ns = ns + strconv.Itoa(len(union))
+	}
+	union[ns] = nsURI
+}
+
 func (ge *goEncoder) unionSchemasData(d *wsdl.Definitions, s *wsdl.Schema) {
+	// use a dedicated name for all 'custom' schemas
+
 	for ns := range s.Namespaces {
-		d.Namespaces[ns] = s.Namespaces[ns]
+		addNameSpace(d.Namespaces, ns, s.Namespaces[ns])
+		// d.Namespaces[ns] = s.Namespaces[ns]
 	}
 	for _, ct := range s.ComplexTypes {
 		ct.TargetNamespace = s.TargetNamespace
@@ -1453,7 +1494,7 @@ func (ge *goEncoder) genOpStructMessage(w io.Writer, d *wsdl.Definitions, name s
 			Name:    partName,
 			Type:    wsdlType,
 			// TODO: Maybe one could make guesses about nillable?
-		})
+		}, "")
 	}
 
 	fmt.Fprintf(w, "}\n\n")
@@ -1474,8 +1515,9 @@ func (ge *goEncoder) genComplexContent(w io.Writer, d *wsdl.Definitions, ct *wsd
 		}
 	}
 
+	ns := ge.usedNameSpaceMap[ct.TargetNamespace]
 	for _, attr := range ext.Attributes {
-		ge.genAttributeField(w, attr)
+		ge.genAttributeField(w, attr, ns)
 	}
 
 	sequences := make([]*wsdl.Sequence, 0)
@@ -1506,7 +1548,7 @@ func (ge *goEncoder) genComplexContent(w io.Writer, d *wsdl.Definitions, ct *wsd
 			}
 		}
 		for _, v := range seq.Elements {
-			ge.genElementField(w, v)
+			ge.genElementField(w, v, ns)
 		}
 
 	}
@@ -1517,6 +1559,7 @@ func (ge *goEncoder) genSimpleContent(w io.Writer, d *wsdl.Definitions, ct *wsdl
 	if ct.SimpleContent == nil || ct.SimpleContent.Extension == nil {
 		return nil
 	}
+	ns := ge.usedNameSpaceMap[ct.TargetNamespace]
 
 	ext := ct.SimpleContent.Extension
 	if ext.Base != "" {
@@ -1531,12 +1574,12 @@ func (ge *goEncoder) genSimpleContent(w io.Writer, d *wsdl.Definitions, ct *wsdl
 			ge.genElementField(w, &wsdl.Element{
 				Type: trimns(ext.Base),
 				Name: "Content",
-			})
+			}, ns)
 		}
 	}
 
 	for _, attr := range ext.Attributes {
-		ge.genAttributeField(w, attr)
+		ge.genAttributeField(w, attr, ns)
 	}
 
 	// sequence, choice, etc. are not supported in simpleContent tags.
@@ -1544,31 +1587,33 @@ func (ge *goEncoder) genSimpleContent(w io.Writer, d *wsdl.Definitions, ct *wsdl
 }
 
 func (ge *goEncoder) genElements(w io.Writer, ct *wsdl.ComplexType) error {
+	ns := ge.usedNameSpaceMap[ct.TargetNamespace]
+
 	for _, el := range ct.AllElements {
-		ge.genElementField(w, el)
+		ge.genElementField(w, el, ns)
 	}
 	if ct.Sequence != nil {
 		for _, el := range ct.Sequence.Elements {
-			ge.genElementField(w, el)
+			ge.genElementField(w, el, ns)
 		}
 		for _, choice := range ct.Sequence.Choices {
 			for _, el := range choice.Elements {
-				ge.genElementField(w, el)
+				ge.genElementField(w, el, ns)
 			}
 		}
 	}
 	if ct.Choice != nil {
 		for _, el := range ct.Choice.Elements {
-			ge.genElementField(w, el)
+			ge.genElementField(w, el, ns)
 		}
 	}
 	for _, attr := range ct.Attributes {
-		ge.genAttributeField(w, attr)
+		ge.genAttributeField(w, attr, ns)
 	}
 	return nil
 }
 
-func (ge *goEncoder) genElementField(w io.Writer, el *wsdl.Element) {
+func (ge *goEncoder) genElementField(w io.Writer, el *wsdl.Element, ns string) {
 	if el.Ref != "" {
 		ref := trimns(el.Ref)
 		nel, ok := ge.elements[ref]
@@ -1618,6 +1663,10 @@ func (ge *goEncoder) genElementField(w io.Writer, el *wsdl.Element) {
 			tag = el.Name + ">" + slicetype
 		}
 	}
+	if ns != "" {
+		tag = fmt.Sprintf("%s:%s", ns, tag)
+	}
+
 	typ := ge.wsdl2goType(et)
 	if el.Nillable || el.Min == 0 {
 		tag += ",omitempty"
@@ -1631,16 +1680,20 @@ func (ge *goEncoder) genElementField(w io.Writer, el *wsdl.Element) {
 		typ, tag, tag, tag)
 }
 
-func (ge *goEncoder) genAttributeField(w io.Writer, attr *wsdl.Attribute) {
+func (ge *goEncoder) genAttributeField(w io.Writer, attr *wsdl.Attribute, ns string) {
 	if attr.Name == "" && attr.Ref != "" {
 		attr.Name = trimns(attr.Ref)
 	}
 	if attr.Type == "" {
 		attr.Type = "string"
 	}
+	fmt.Fprintf(w, "%s ", goSymbol(attr.Name))
 
 	tag := fmt.Sprintf("%s,attr", attr.Name)
-	fmt.Fprintf(w, "%s ", goSymbol(attr.Name))
+	if ns != "" {
+		tag = fmt.Sprintf("%s:%s", ns, tag)
+	}
+
 	typ := ge.wsdl2goType(attr.Type)
 	if attr.Nillable || attr.Min == 0 {
 		tag += ",omitempty"
