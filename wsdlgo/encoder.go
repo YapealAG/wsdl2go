@@ -1518,7 +1518,12 @@ func (ge *goEncoder) genComplexContent(w io.Writer, d *wsdl.Definitions, ct *wsd
 		}
 	}
 
-	ns := ge.usedNameSpaceMap[ct.TargetNamespace]
+	_, ok := ge.usedNameSpaceMap[ct.TargetNamespace]
+	var ns string
+	if ok {
+		ns = ct.TargetNamespace
+	}
+
 	for _, attr := range ext.Attributes {
 		ge.genAttributeField(w, attr, ns)
 	}
@@ -1562,7 +1567,12 @@ func (ge *goEncoder) genSimpleContent(w io.Writer, d *wsdl.Definitions, ct *wsdl
 	if ct.SimpleContent == nil || ct.SimpleContent.Extension == nil {
 		return nil
 	}
-	ns := ge.usedNameSpaceMap[ct.TargetNamespace]
+
+	_, ok := ge.usedNameSpaceMap[ct.TargetNamespace]
+	var ns string
+	if ok {
+		ns = ct.TargetNamespace
+	}
 
 	ext := ct.SimpleContent.Extension
 	if ext.Base != "" {
@@ -1590,7 +1600,11 @@ func (ge *goEncoder) genSimpleContent(w io.Writer, d *wsdl.Definitions, ct *wsdl
 }
 
 func (ge *goEncoder) genElements(w io.Writer, ct *wsdl.ComplexType) error {
-	ns := ge.usedNameSpaceMap[ct.TargetNamespace]
+	_, ok := ge.usedNameSpaceMap[ct.TargetNamespace]
+	var ns string
+	if ok {
+		ns = ct.TargetNamespace
+	}
 
 	for _, el := range ct.AllElements {
 		ge.genElementField(w, el, ns)
@@ -1667,7 +1681,7 @@ func (ge *goEncoder) genElementField(w io.Writer, el *wsdl.Element, ns string) {
 		}
 	}
 	if ns != "" {
-		tag = fmt.Sprintf("%s:%s", ns, tag)
+		tag = fmt.Sprintf("%s %s", ns, tag)
 	}
 
 	typ := ge.wsdl2goType(et)
@@ -1694,7 +1708,7 @@ func (ge *goEncoder) genAttributeField(w io.Writer, attr *wsdl.Attribute, ns str
 
 	tag := fmt.Sprintf("%s,attr", attr.Name)
 	if ns != "" {
-		tag = fmt.Sprintf("%s:%s", ns, tag)
+		tag = fmt.Sprintf("%s %s", ns, tag)
 	}
 
 	typ := ge.wsdl2goType(attr.Type)
