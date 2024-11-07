@@ -297,6 +297,7 @@ func (ge *goEncoder) importSchema(d *wsdl.Definitions) error {
 		if imp.Location == "" {
 			continue
 		}
+
 		schema := &wsdl.Schema{}
 		err := ge.importRemote(imp.Location, schema)
 		if err != nil {
@@ -401,12 +402,14 @@ func (ge *goEncoder) importRemote(loc string, v any) error {
 }
 
 func (ge *goEncoder) cacheTypes(d *wsdl.Definitions) {
+	// TODO does not consider name spaces
 	// operation types are declared as go struct types
 	for _, v := range d.Schema.Elements {
 		if v.Type == "" && v.ComplexType != nil {
 			ct := *v.ComplexType
 			ct.Name = v.Name
 			ge.ctypes[v.Name] = &ct
+
 		}
 	}
 	// simple types map 1:1 to go basic types
@@ -415,11 +418,14 @@ func (ge *goEncoder) cacheTypes(d *wsdl.Definitions) {
 	}
 	// complex types are declared as go struct types
 	for _, v := range d.Schema.ComplexTypes {
-		ge.ctypes[v.Name] = v
+		ctName := v.TargetNamespace + ":" + v.Name
+
+		ge.ctypes[ctName] = v
 	}
 	// cache elements from schema
 	ge.cacheElements(d.Schema.Elements)
 	// cache elements from complex types
+
 	for _, ct := range ge.ctypes {
 		ge.cacheComplexTypeElements(ct)
 	}

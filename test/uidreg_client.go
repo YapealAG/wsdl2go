@@ -13,16 +13,16 @@ var Namespace = "http://www.uid.admin.ch/xmlns/uid-wse"
 
 // UsedNameSpaceMap was auto-generated from WSDL.
 var UsedNamespaces = map[string]string{
-	"tns5": "http://www.ech.ch/xmlns/eCH-0007/6",
-	"tns1": "http://www.uid.admin.ch/xmlns/uid-wse-shared/2",
-	"tns9": "http://www.ech.ch/xmlns/eCH-0010/7",
-	"tns0": "http://www.ech.ch/xmlns/eCH-0108/5",
-	"tns3": "http://www.uid.admin.ch/xmlns/uid-wse/5",
-	"tns2": "http://www.ech.ch/xmlns/eCH-0097/5",
-	"tns4": "http://www.ech.ch/xmlns/eCH-0098/5",
-	"tns6": "http://www.ech.ch/xmlns/eCH-0046/5",
 	"tns7": "http://www.ech.ch/xmlns/eCH-0116/4",
 	"tns8": "http://www.ech.ch/xmlns/eCH-0044/4",
+	"tns9": "http://www.ech.ch/xmlns/eCH-0010/7",
+	"tns2": "http://www.ech.ch/xmlns/eCH-0097/5",
+	"tns3": "http://www.uid.admin.ch/xmlns/uid-wse/5",
+	"tns4": "http://www.ech.ch/xmlns/eCH-0098/5",
+	"tns0": "http://www.ech.ch/xmlns/eCH-0108/5",
+	"tns1": "http://www.uid.admin.ch/xmlns/uid-wse-shared/2",
+	"tns5": "http://www.ech.ch/xmlns/eCH-0007/6",
+	"tns6": "http://www.ech.ch/xmlns/eCH-0046/5",
 }
 
 // NewIPublicServices creates an initializes a IPublicServices.
@@ -485,11 +485,6 @@ func (v VatStatusType) Validate() bool {
 	return false
 }
 
-// ArrayOfOrganisationType was auto-generated from WSDL.
-type ArrayOfOrganisationType struct {
-	OrganisationType []*OrganisationType `xml:"organisationType,omitempty" json:"organisationType,omitempty" yaml:"organisationType,omitempty"`
-}
-
 // GetByUID was auto-generated from WSDL.
 type GetByUID struct {
 	Uid *UidStructureType `xml:"uid,omitempty" json:"uid,omitempty" yaml:"uid,omitempty"`
@@ -558,21 +553,43 @@ type AddressInformationType struct {
 	SwissZipCodeId      int          `xml:"http://www.ech.ch/xmlns/eCH-0010/7 swissZipCodeId" json:"http://www.ech.ch/xmlns/eCH-0010/7 swissZipCodeId" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 swissZipCodeId"`
 }
 
-// AddressSearchType was auto-generated from WSDL.
-type AddressSearchType struct {
-	AddressLine1        *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine1,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine1,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine1,omitempty"`
-	AddressLine2        *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine2,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine2,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine2,omitempty"`
-	Street              *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty"`
-	HouseNumber         *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 houseNumber,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 houseNumber,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 houseNumber,omitempty"`
-	PostOfficeBoxNumber *uint                  `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 postOfficeBoxNumber,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 postOfficeBoxNumber,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 postOfficeBoxNumber,omitempty"`
-	Town                *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty"`
-	CountryIdISO2       *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 countryIdISO2,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 countryIdISO2,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 countryIdISO2,omitempty"`
-	SwissZipCode        uint                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode"`
-	SwissZipCodeAddOn   *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCodeAddOn,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCodeAddOn,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCodeAddOn,omitempty"`
-	MunicipalityId      int                    `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 municipalityId" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 municipalityId" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 municipalityId"`
-	CantonAbbreviation  CantonAbbreviationType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 cantonAbbreviation" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 cantonAbbreviation" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 cantonAbbreviation"`
-	EGID                uint                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 EGID" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 EGID" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 EGID"`
-	ForeignZipCode      *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 foreignZipCode,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 foreignZipCode,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 foreignZipCode,omitempty"`
+// CountryType was auto-generated from WSDL.
+type CountryType struct {
+	CountryId        *int64  `xml:"http://www.ech.ch/xmlns/eCH-0010/7 countryId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 countryId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 countryId,omitempty"`
+	CountryIdISO2    *string `xml:"http://www.ech.ch/xmlns/eCH-0010/7 countryIdISO2,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 countryIdISO2,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 countryIdISO2,omitempty"`
+	CountryNameShort *string `xml:"http://www.ech.ch/xmlns/eCH-0010/7 countryNameShort,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 countryNameShort,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 countryNameShort,omitempty"`
+}
+
+// MailAddressType was auto-generated from WSDL.
+type MailAddressType struct {
+	AddressInformation *AddressInformationType          `xml:"http://www.ech.ch/xmlns/eCH-0010/7 addressInformation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 addressInformation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 addressInformation,omitempty"`
+	Organisation       *OrganisationMailAddressInfoType `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisation,omitempty"`
+	Person             *PersonMailAddressInfoType       `xml:"http://www.ech.ch/xmlns/eCH-0010/7 person,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 person,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 person,omitempty"`
+}
+
+// OrganisationMailAddressInfoType was auto-generated from WSDL.
+type OrganisationMailAddressInfoType struct {
+	OrganisationName       *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisationName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationName,omitempty"`
+	OrganisationNameAddOn1 *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn1,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn1,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn1,omitempty"`
+	OrganisationNameAddOn2 *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn2,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn2,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn2,omitempty"`
+	MrMrs                  *MrMrsType `xml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty"`
+	Title                  *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty"`
+	FirstName              *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty"`
+	LastName               *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty"`
+}
+
+// PersonMailAddressInfoType was auto-generated from WSDL.
+type PersonMailAddressInfoType struct {
+	MrMrs     *MrMrsType `xml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty"`
+	Title     *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty"`
+	FirstName *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty"`
+	LastName  *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty"`
+}
+
+// NamedPersonIdType was auto-generated from WSDL.
+type NamedPersonIdType struct {
+	PersonIdCategory *string `xml:"http://www.ech.ch/xmlns/eCH-0044/4 personIdCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0044/4 personIdCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0044/4 personIdCategory,omitempty"`
+	PersonId         *string `xml:"http://www.ech.ch/xmlns/eCH-0044/4 personId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0044/4 personId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0044/4 personId,omitempty"`
 }
 
 // AddressType was auto-generated from WSDL.
@@ -581,52 +598,6 @@ type AddressType struct {
 	Validity             *DateRangeType      `xml:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty"`
 	AddressCategory      AddressCategoryType `xml:"http://www.ech.ch/xmlns/eCH-0046/5 addressCategory" json:"http://www.ech.ch/xmlns/eCH-0046/5 addressCategory" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 addressCategory"`
 	OtherAddressCategory *string             `xml:"http://www.ech.ch/xmlns/eCH-0046/5 otherAddressCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 otherAddressCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 otherAddressCategory,omitempty"`
-}
-
-// BusinessFault was auto-generated from WSDL.
-type BusinessFault struct {
-	Operation     *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty"`
-	Error         *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty"`
-	ErrorDetail   *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty"`
-	TypeAttrXSI   string  `xml:"xsi:type,attr,omitempty"`
-	TypeNamespace string  `xml:"xmlns:objtype,attr,omitempty"`
-
-	OverrideTypeAttrXSI   *string `xml:"-"`
-	OverrideTypeNamespace *string `xml:"-"`
-}
-
-// SetXMLType was auto-generated from WSDL.
-func (t *BusinessFault) SetXMLType() {
-	if t.OverrideTypeAttrXSI != nil {
-		t.TypeAttrXSI = *t.OverrideTypeAttrXSI
-	} else {
-		t.TypeAttrXSI = "objtype:businessFault"
-	}
-	if t.OverrideTypeNamespace != nil {
-		t.TypeNamespace = *t.OverrideTypeNamespace
-	} else {
-		t.TypeNamespace = "http://www.uid.admin.ch/xmlns/uid-wse-shared/2"
-	}
-}
-
-// CommercialRegisterInformationSearchType was auto-generated from
-// WSDL.
-type CommercialRegisterInformationSearchType struct {
-	CommercialRegisterStatus          *CommercialRegisterStatusType         `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterStatus,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterStatus,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterStatus,omitempty"`
-	CommercialRegisterEntryStatus     *CommercialRegisterEntryStatusType    `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryStatus,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryStatus,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryStatus,omitempty"`
-	CommercialRegisterEntryDate       *Date                                 `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryDate,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryDate,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryDate,omitempty"`
-	CommercialRegisterLiquidationDate *Date                                 `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterLiquidationDate,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterLiquidationDate,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterLiquidationDate,omitempty"`
-	CommercialRegisterEnterpriseType  *CommercialRegisterEnterpriseTypeType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEnterpriseType,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEnterpriseType,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEnterpriseType,omitempty"`
-}
-
-// CommercialRegisterInformationType was auto-generated from WSDL.
-type CommercialRegisterInformationType struct {
-	CommercialRegisterStatus          CommercialRegisterStatusType          `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterStatus"`
-	CommercialRegisterEntryStatus     *CommercialRegisterEntryStatusType    `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryStatus,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryStatus,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryStatus,omitempty"`
-	CommercialRegisterNameTranslation *string                               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterNameTranslation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterNameTranslation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterNameTranslation,omitempty"`
-	CommercialRegisterEntryDate       *Date                                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryDate,omitempty"`
-	CommercialRegisterLiquidationDate *Date                                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterLiquidationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterLiquidationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterLiquidationDate,omitempty"`
-	CommercialRegisterEnterpriseType  *CommercialRegisterEnterpriseTypeType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEnterpriseType,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEnterpriseType,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEnterpriseType,omitempty"`
 }
 
 // ContactType was auto-generated from WSDL.
@@ -638,65 +609,10 @@ type ContactType struct {
 	Internet []*InternetType    `xml:"http://www.ech.ch/xmlns/eCH-0046/5 internet,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 internet,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 internet,omitempty"`
 }
 
-// CountryType was auto-generated from WSDL.
-type CountryType struct {
-	CountryId        *int64  `xml:"http://www.ech.ch/xmlns/eCH-0010/7 countryId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 countryId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 countryId,omitempty"`
-	CountryIdISO2    *string `xml:"http://www.ech.ch/xmlns/eCH-0010/7 countryIdISO2,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 countryIdISO2,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 countryIdISO2,omitempty"`
-	CountryNameShort *string `xml:"http://www.ech.ch/xmlns/eCH-0010/7 countryNameShort,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 countryNameShort,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 countryNameShort,omitempty"`
-}
-
-// DatePartiallyKnownType was auto-generated from WSDL.
-type DatePartiallyKnownType struct {
-	Year         *GYear      `xml:"http://www.ech.ch/xmlns/eCH-0098/5 year,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 year,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 year,omitempty"`
-	YearMonth    *GYearMonth `xml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonth,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonth,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonth,omitempty"`
-	YearMonthDay Date        `xml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonthDay" json:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonthDay" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonthDay"`
-}
-
 // DateRangeType was auto-generated from WSDL.
 type DateRangeType struct {
 	DateFrom *Date `xml:"http://www.ech.ch/xmlns/eCH-0046/5 dateFrom,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 dateFrom,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 dateFrom,omitempty"`
 	DateTo   *Date `xml:"http://www.ech.ch/xmlns/eCH-0046/5 dateTo,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 dateTo,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 dateTo,omitempty"`
-}
-
-// DuplicateCandidateType was auto-generated from WSDL.
-type DuplicateCandidateType struct {
-	Rating                       int                              `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 rating" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 rating" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 rating"`
-	Uid                          *UidStructureType                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uid,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uid,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uid,omitempty"`
-	OrganisationName             *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationName,omitempty"`
-	OrganisationAdditionalName   *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationAdditionalName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationAdditionalName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationAdditionalName,omitempty"`
-	Street                       *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty"`
-	SwissZipCode                 uint                             `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode"`
-	Town                         *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty"`
-	UidregStatusEnterpriseDetail UidregStatusEnterpriseDetailType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail"`
-	UidregOrganisationType       UidregOrganisationTypeType       `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregOrganisationType" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregOrganisationType" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregOrganisationType"`
-}
-
-// DuplicateFault was auto-generated from WSDL.
-type DuplicateFault struct {
-	Operation             *string                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty"`
-	Error                 *string                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty"`
-	ErrorDetail           *string                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty"`
-	Candidates            []*DuplicateCandidateType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 candidates,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 candidates,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 candidates,omitempty"`
-	DuplicateOverrideCode *string                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 duplicateOverrideCode,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 duplicateOverrideCode,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 duplicateOverrideCode,omitempty"`
-	TypeAttrXSI           string                    `xml:"xsi:type,attr,omitempty"`
-	TypeNamespace         string                    `xml:"xmlns:objtype,attr,omitempty"`
-
-	OverrideTypeAttrXSI   *string `xml:"-"`
-	OverrideTypeNamespace *string `xml:"-"`
-}
-
-// SetXMLType was auto-generated from WSDL.
-func (t *DuplicateFault) SetXMLType() {
-	if t.OverrideTypeAttrXSI != nil {
-		t.TypeAttrXSI = *t.OverrideTypeAttrXSI
-	} else {
-		t.TypeAttrXSI = "objtype:duplicateFault"
-	}
-	if t.OverrideTypeNamespace != nil {
-		t.TypeNamespace = *t.OverrideTypeNamespace
-	} else {
-		t.TypeNamespace = "http://www.uid.admin.ch/xmlns/uid-wse/5"
-	}
 }
 
 // EmailType was auto-generated from WSDL.
@@ -707,45 +623,6 @@ type EmailType struct {
 	OtherEmailCategory *string           `xml:"http://www.ech.ch/xmlns/eCH-0046/5 otherEmailCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 otherEmailCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 otherEmailCategory,omitempty"`
 }
 
-// FoundationType was auto-generated from WSDL.
-type FoundationType struct {
-	FoundationDate   *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 foundationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationDate,omitempty"`
-	FoundationReason *FoundationReasonType   `xml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationReason,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 foundationReason,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationReason,omitempty"`
-}
-
-// GroupRelationshipType was auto-generated from WSDL.
-type GroupRelationshipType struct {
-	GroupName                  *string                        `xml:"http://www.ech.ch/xmlns/eCH-0108/5 groupName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 groupName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 groupName,omitempty"`
-	OrganisationMembershipRole OrganisationMembershipRoleType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 organisationMembershipRole" json:"http://www.ech.ch/xmlns/eCH-0108/5 organisationMembershipRole" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 organisationMembershipRole"`
-	GroupParticipant           []*string                      `xml:"http://www.ech.ch/xmlns/eCH-0108/5 groupParticipant,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 groupParticipant,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 groupParticipant,omitempty"`
-}
-
-// InfrastructureFault was auto-generated from WSDL.
-type InfrastructureFault struct {
-	Operation     *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty"`
-	Error         *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty"`
-	ErrorDetail   *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty"`
-	TypeAttrXSI   string  `xml:"xsi:type,attr,omitempty"`
-	TypeNamespace string  `xml:"xmlns:objtype,attr,omitempty"`
-
-	OverrideTypeAttrXSI   *string `xml:"-"`
-	OverrideTypeNamespace *string `xml:"-"`
-}
-
-// SetXMLType was auto-generated from WSDL.
-func (t *InfrastructureFault) SetXMLType() {
-	if t.OverrideTypeAttrXSI != nil {
-		t.TypeAttrXSI = *t.OverrideTypeAttrXSI
-	} else {
-		t.TypeAttrXSI = "objtype:infrastructureFault"
-	}
-	if t.OverrideTypeNamespace != nil {
-		t.TypeNamespace = *t.OverrideTypeNamespace
-	} else {
-		t.TypeNamespace = "http://www.uid.admin.ch/xmlns/uid-wse-shared/2"
-	}
-}
-
 // InternetType was auto-generated from WSDL.
 type InternetType struct {
 	InternetAddress       *string              `xml:"http://www.ech.ch/xmlns/eCH-0046/5 internetAddress,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 internetAddress,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 internetAddress,omitempty"`
@@ -754,35 +631,12 @@ type InternetType struct {
 	OtherInternetCategory *string              `xml:"http://www.ech.ch/xmlns/eCH-0046/5 otherInternetCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 otherInternetCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 otherInternetCategory,omitempty"`
 }
 
-// InvolvedPersonType was auto-generated from WSDL.
-type InvolvedPersonType struct {
-	Role         *string                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 role,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 role,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 role,omitempty"`
-	Vn           *UnsignedLong           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vn,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vn,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vn,omitempty"`
-	OfficialName *string                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 officialName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 officialName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 officialName,omitempty"`
-	FirstName    *string                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 firstName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 firstName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 firstName,omitempty"`
-	DateOfBirth  *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 dateOfBirth,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 dateOfBirth,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 dateOfBirth,omitempty"`
-	Sex          *SexType                `xml:"http://www.ech.ch/xmlns/eCH-0108/5 sex,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 sex,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 sex,omitempty"`
-}
-
-// LeiRegisterInformationType was auto-generated from WSDL.
-type LeiRegisterInformationType struct {
-	InitialRegistrationDate Date   `xml:"http://www.ech.ch/xmlns/eCH-0108/5 initialRegistrationDate" json:"http://www.ech.ch/xmlns/eCH-0108/5 initialRegistrationDate" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 initialRegistrationDate"`
-	ExpirationDate          *Date  `xml:"http://www.ech.ch/xmlns/eCH-0108/5 expirationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 expirationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 expirationDate,omitempty"`
-	RegistrationStatus      string `xml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus"`
-}
-
-// LiquidationType was auto-generated from WSDL.
-type LiquidationType struct {
-	LiquidationDate      *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationDate,omitempty"`
-	LiquidationStartDate *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationStartDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationStartDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationStartDate,omitempty"`
-	LiquidationReason    *LiquidationReasonType  `xml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationReason,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationReason,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationReason,omitempty"`
-}
-
-// MailAddressType was auto-generated from WSDL.
-type MailAddressType struct {
-	AddressInformation *AddressInformationType          `xml:"http://www.ech.ch/xmlns/eCH-0010/7 addressInformation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 addressInformation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 addressInformation,omitempty"`
-	Organisation       *OrganisationMailAddressInfoType `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisation,omitempty"`
-	Person             *PersonMailAddressInfoType       `xml:"http://www.ech.ch/xmlns/eCH-0010/7 person,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 person,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 person,omitempty"`
+// PhoneType was auto-generated from WSDL.
+type PhoneType struct {
+	PhoneNumber        *string           `xml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneNumber,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 phoneNumber,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneNumber,omitempty"`
+	Validity           *DateRangeType    `xml:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty"`
+	OtherPhoneCategory *string           `xml:"http://www.ech.ch/xmlns/eCH-0046/5 otherPhoneCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 otherPhoneCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 otherPhoneCategory,omitempty"`
+	PhoneCategory      PhoneCategoryType `xml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneCategory" json:"http://www.ech.ch/xmlns/eCH-0046/5 phoneCategory" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneCategory"`
 }
 
 // NamedOrganisationIdType was auto-generated from WSDL.
@@ -791,10 +645,41 @@ type NamedOrganisationIdType struct {
 	OrganisationId         *string `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationId,omitempty"`
 }
 
-// NamedPersonIdType was auto-generated from WSDL.
-type NamedPersonIdType struct {
-	PersonIdCategory *string `xml:"http://www.ech.ch/xmlns/eCH-0044/4 personIdCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0044/4 personIdCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0044/4 personIdCategory,omitempty"`
-	PersonId         *string `xml:"http://www.ech.ch/xmlns/eCH-0044/4 personId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0044/4 personId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0044/4 personId,omitempty"`
+// OrganisationIdentificationType was auto-generated from WSDL.
+type OrganisationIdentificationType struct {
+	Uid                        *UidStructureType          `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uid,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 uid,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uid,omitempty"`
+	LocalOrganisationId        *NamedOrganisationIdType   `xml:"http://www.ech.ch/xmlns/eCH-0097/5 localOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 localOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 localOrganisationId,omitempty"`
+	OtherOrganisationId        []*NamedOrganisationIdType `xml:"http://www.ech.ch/xmlns/eCH-0097/5 OtherOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 OtherOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 OtherOrganisationId,omitempty"`
+	OrganisationName           *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationName,omitempty"`
+	OrganisationLegalName      *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationLegalName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationLegalName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationLegalName,omitempty"`
+	OrganisationAdditionalName *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationAdditionalName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationAdditionalName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationAdditionalName,omitempty"`
+	LegalForm                  *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 legalForm,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 legalForm,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 legalForm,omitempty"`
+}
+
+// UidStructureType was auto-generated from WSDL.
+type UidStructureType struct {
+	UidOrganisationIdCategorie UidOrganisationIdCategorieType `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie" json:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie"`
+	UidOrganisationId          *uint                          `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty"`
+}
+
+// DatePartiallyKnownType was auto-generated from WSDL.
+type DatePartiallyKnownType struct {
+	Year         *GYear      `xml:"http://www.ech.ch/xmlns/eCH-0098/5 year,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 year,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 year,omitempty"`
+	YearMonth    *GYearMonth `xml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonth,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonth,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonth,omitempty"`
+	YearMonthDay Date        `xml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonthDay" json:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonthDay" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 yearMonthDay"`
+}
+
+// FoundationType was auto-generated from WSDL.
+type FoundationType struct {
+	FoundationDate   *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 foundationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationDate,omitempty"`
+	FoundationReason *FoundationReasonType   `xml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationReason,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 foundationReason,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 foundationReason,omitempty"`
+}
+
+// LiquidationType was auto-generated from WSDL.
+type LiquidationType struct {
+	LiquidationDate      *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationDate,omitempty"`
+	LiquidationStartDate *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationStartDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationStartDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationStartDate,omitempty"`
+	LiquidationReason    *LiquidationReasonType  `xml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationReason,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationReason,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 liquidationReason,omitempty"`
 }
 
 // OrganisationAddressType was auto-generated from WSDL.
@@ -818,30 +703,8 @@ type OrganisationAddressType struct {
 	ForeignZipCode      *string                `xml:"http://www.ech.ch/xmlns/eCH-0098/5 foreignZipCode,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 foreignZipCode,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 foreignZipCode,omitempty"`
 }
 
-// OrganisationIdentificationType was auto-generated from WSDL.
-type OrganisationIdentificationType struct {
-	Uid                        *UidStructureType          `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uid,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 uid,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uid,omitempty"`
-	LocalOrganisationId        *NamedOrganisationIdType   `xml:"http://www.ech.ch/xmlns/eCH-0097/5 localOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 localOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 localOrganisationId,omitempty"`
-	OtherOrganisationId        []*NamedOrganisationIdType `xml:"http://www.ech.ch/xmlns/eCH-0097/5 OtherOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 OtherOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 OtherOrganisationId,omitempty"`
-	OrganisationName           *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationName,omitempty"`
-	OrganisationLegalName      *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationLegalName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationLegalName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationLegalName,omitempty"`
-	OrganisationAdditionalName *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationAdditionalName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 organisationAdditionalName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 organisationAdditionalName,omitempty"`
-	LegalForm                  *string                    `xml:"http://www.ech.ch/xmlns/eCH-0097/5 legalForm,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 legalForm,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 legalForm,omitempty"`
-}
-
-// OrganisationMailAddressInfoType was auto-generated from WSDL.
-type OrganisationMailAddressInfoType struct {
-	OrganisationName       *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisationName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationName,omitempty"`
-	OrganisationNameAddOn1 *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn1,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn1,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn1,omitempty"`
-	OrganisationNameAddOn2 *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn2,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn2,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 organisationNameAddOn2,omitempty"`
-	MrMrs                  *MrMrsType `xml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty"`
-	Title                  *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty"`
-	FirstName              *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty"`
-	LastName               *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty"`
-}
-
 // OrganisationType was auto-generated from WSDL.
-type OrganisationType struct {
+type OrganisationType98 struct {
 	OrganisationIdentification *OrganisationIdentificationType `xml:"http://www.ech.ch/xmlns/eCH-0098/5 organisationIdentification,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 organisationIdentification,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 organisationIdentification,omitempty"`
 	UidBrancheText             *string                         `xml:"http://www.ech.ch/xmlns/eCH-0098/5 uidBrancheText,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 uidBrancheText,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 uidBrancheText,omitempty"`
 	NOGACode                   *string                         `xml:"http://www.ech.ch/xmlns/eCH-0098/5 NOGACode,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 NOGACode,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 NOGACode,omitempty"`
@@ -852,34 +715,84 @@ type OrganisationType struct {
 	LanguageOfCorrespondance   *string                         `xml:"http://www.ech.ch/xmlns/eCH-0098/5 languageOfCorrespondance,omitempty" json:"http://www.ech.ch/xmlns/eCH-0098/5 languageOfCorrespondance,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0098/5 languageOfCorrespondance,omitempty"`
 }
 
-// PersonMailAddressInfoType was auto-generated from WSDL.
-type PersonMailAddressInfoType struct {
-	MrMrs     *MrMrsType `xml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 mrMrs,omitempty"`
-	Title     *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 title,omitempty"`
-	FirstName *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 firstName,omitempty"`
-	LastName  *string    `xml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0010/7 lastName,omitempty"`
+// CommercialRegisterInformationType was auto-generated from WSDL.
+type CommercialRegisterInformationType struct {
+	CommercialRegisterStatus          CommercialRegisterStatusType          `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterStatus"`
+	CommercialRegisterEntryStatus     *CommercialRegisterEntryStatusType    `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryStatus,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryStatus,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryStatus,omitempty"`
+	CommercialRegisterNameTranslation *string                               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterNameTranslation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterNameTranslation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterNameTranslation,omitempty"`
+	CommercialRegisterEntryDate       *Date                                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEntryDate,omitempty"`
+	CommercialRegisterLiquidationDate *Date                                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterLiquidationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterLiquidationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterLiquidationDate,omitempty"`
+	CommercialRegisterEnterpriseType  *CommercialRegisterEnterpriseTypeType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEnterpriseType,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEnterpriseType,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterEnterpriseType,omitempty"`
 }
 
-// PersonNameType was auto-generated from WSDL.
-type PersonNameType struct {
-	OfficialName *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 officialName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 officialName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 officialName,omitempty"`
-	FirstName    *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 firstName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 firstName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 firstName,omitempty"`
+// GroupRelationshipType was auto-generated from WSDL.
+type GroupRelationshipType struct {
+	GroupName                  *string                        `xml:"http://www.ech.ch/xmlns/eCH-0108/5 groupName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 groupName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 groupName,omitempty"`
+	OrganisationMembershipRole OrganisationMembershipRoleType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 organisationMembershipRole" json:"http://www.ech.ch/xmlns/eCH-0108/5 organisationMembershipRole" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 organisationMembershipRole"`
+	GroupParticipant           []*string                      `xml:"http://www.ech.ch/xmlns/eCH-0108/5 groupParticipant,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 groupParticipant,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 groupParticipant,omitempty"`
 }
 
-// PhoneType was auto-generated from WSDL.
-type PhoneType struct {
-	PhoneNumber        *string           `xml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneNumber,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 phoneNumber,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneNumber,omitempty"`
-	Validity           *DateRangeType    `xml:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 validity,omitempty"`
-	OtherPhoneCategory *string           `xml:"http://www.ech.ch/xmlns/eCH-0046/5 otherPhoneCategory,omitempty" json:"http://www.ech.ch/xmlns/eCH-0046/5 otherPhoneCategory,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 otherPhoneCategory,omitempty"`
-	PhoneCategory      PhoneCategoryType `xml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneCategory" json:"http://www.ech.ch/xmlns/eCH-0046/5 phoneCategory" yaml:"http://www.ech.ch/xmlns/eCH-0046/5 phoneCategory"`
+// InvolvedPersonType was auto-generated from WSDL.
+type InvolvedPersonType struct {
+	Role         *string                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 role,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 role,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 role,omitempty"`
+	Vn           *UnsignedLong           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vn,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vn,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vn,omitempty"`
+	OfficialName *string                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 officialName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 officialName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 officialName,omitempty"`
+	FirstName    *string                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 firstName,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 firstName,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 firstName,omitempty"`
+	DateOfBirth  *DatePartiallyKnownType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 dateOfBirth,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 dateOfBirth,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 dateOfBirth,omitempty"`
+	Sex          *SexType                `xml:"http://www.ech.ch/xmlns/eCH-0108/5 sex,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 sex,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 sex,omitempty"`
+}
+
+// LeiRegisterInformationType was auto-generated from WSDL.
+type LeiRegisterInformationType struct {
+	InitialRegistrationDate Date   `xml:"http://www.ech.ch/xmlns/eCH-0108/5 initialRegistrationDate" json:"http://www.ech.ch/xmlns/eCH-0108/5 initialRegistrationDate" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 initialRegistrationDate"`
+	ExpirationDate          *Date  `xml:"http://www.ech.ch/xmlns/eCH-0108/5 expirationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 expirationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 expirationDate,omitempty"`
+	RegistrationStatus      string `xml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus"`
+}
+
+// OrganisationType was auto-generated from WSDL.
+type OrganisationType struct {
+	Organisation                  *OrganisationType98                `xml:"http://www.ech.ch/xmlns/eCH-0108/5 organisation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 organisation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 organisation,omitempty"`
+	UidregInformation             *UidregInformationType             `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregInformation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregInformation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregInformation,omitempty"`
+	CommercialRegisterInformation *CommercialRegisterInformationType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterInformation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterInformation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 commercialRegisterInformation,omitempty"`
+	VatRegisterInformation        *VatRegisterInformationType        `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatRegisterInformation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatRegisterInformation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatRegisterInformation,omitempty"`
+	LeiRegisterInformation        *LeiRegisterInformationType        `xml:"http://www.ech.ch/xmlns/eCH-0108/5 leiRegisterInformation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 leiRegisterInformation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 leiRegisterInformation,omitempty"`
+	GroupRelationship             []*GroupRelationshipType           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 groupRelationship,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 groupRelationship,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 groupRelationship,omitempty"`
+	InvolvedPerson                []*InvolvedPersonType              `xml:"http://www.ech.ch/xmlns/eCH-0108/5 involvedPerson,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 involvedPerson,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 involvedPerson,omitempty"`
+}
+
+// UidRegSourceType was auto-generated from WSDL.
+type UidRegSourceType struct {
+	Uid                *UidStructureType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uid,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uid,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uid,omitempty"`
+	RelationType       string            `xml:"http://www.ech.ch/xmlns/eCH-0108/5 relationType" json:"http://www.ech.ch/xmlns/eCH-0108/5 relationType" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 relationType"`
+	RegistrationDate   Date              `xml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationDate" json:"http://www.ech.ch/xmlns/eCH-0108/5 registrationDate" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationDate"`
+	RegistrationStatus string            `xml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus"`
+}
+
+// UidregInformationType was auto-generated from WSDL.
+type UidregInformationType struct {
+	UidregStatusEnterpriseDetail *UidregStatusEnterpriseDetailType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregStatusEnterpriseDetail,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregStatusEnterpriseDetail,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregStatusEnterpriseDetail,omitempty"`
+	UidregPublicStatus           *UidregPublicStatusType           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregPublicStatus,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregPublicStatus,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregPublicStatus,omitempty"`
+	UidregOrganisationType       *UidregOrganisationTypeType       `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregOrganisationType,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregOrganisationType,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregOrganisationType,omitempty"`
+	UidregLiquidationReason      *UidregLiquidationReasonType      `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregLiquidationReason,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregLiquidationReason,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregLiquidationReason,omitempty"`
+	UidregSource                 []*UidRegSourceType               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregSource,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregSource,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregSource,omitempty"`
+	UidReplacement               *UidStructureType                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidReplacement,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidReplacement,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidReplacement,omitempty"`
+	UidregUidService             *bool                             `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregUidService,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregUidService,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregUidService,omitempty"`
+	UidregTranslation            *string                           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregTranslation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregTranslation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregTranslation,omitempty"`
+}
+
+// VatRegisterInformationType was auto-generated from WSDL.
+type VatRegisterInformationType struct {
+	VatStatus          VatStatusType       `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatStatus"`
+	VatEntryStatus     *VatEntryStatusType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryStatus,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryStatus,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryStatus,omitempty"`
+	VatEntryDate       *Date               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryDate,omitempty"`
+	VatLiquidationDate *Date               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatLiquidationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatLiquidationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatLiquidationDate,omitempty"`
+	UidVat             *UidStructureType   `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidVat,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidVat,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidVat,omitempty"`
 }
 
 // ReportingRegister was auto-generated from WSDL.
 type ReportingRegister struct {
-	UidOrganisationIdCategorie UidOrganisationIdCategorieType `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie" json:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie"`
-	UidOrganisationId          *uint                          `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty"`
-	TypeAttrXSI                string                         `xml:"xsi:type,attr,omitempty"`
-	TypeNamespace              string                         `xml:"xmlns:objtype,attr,omitempty"`
+	TypeAttrXSI   string `xml:"xsi:type,attr,omitempty"`
+	TypeNamespace string `xml:"xmlns:objtype,attr,omitempty"`
 
 	OverrideTypeAttrXSI   *string `xml:"-"`
 	OverrideTypeNamespace *string `xml:"-"`
@@ -899,6 +812,52 @@ func (t *ReportingRegister) SetXMLType() {
 	}
 }
 
+// BusinessFault was auto-generated from WSDL.
+type BusinessFault struct {
+	TypeAttrXSI   string `xml:"xsi:type,attr,omitempty"`
+	TypeNamespace string `xml:"xmlns:objtype,attr,omitempty"`
+
+	OverrideTypeAttrXSI   *string `xml:"-"`
+	OverrideTypeNamespace *string `xml:"-"`
+}
+
+// SetXMLType was auto-generated from WSDL.
+func (t *BusinessFault) SetXMLType() {
+	if t.OverrideTypeAttrXSI != nil {
+		t.TypeAttrXSI = *t.OverrideTypeAttrXSI
+	} else {
+		t.TypeAttrXSI = "objtype:businessFault"
+	}
+	if t.OverrideTypeNamespace != nil {
+		t.TypeNamespace = *t.OverrideTypeNamespace
+	} else {
+		t.TypeNamespace = "http://www.uid.admin.ch/xmlns/uid-wse-shared/2"
+	}
+}
+
+// InfrastructureFault was auto-generated from WSDL.
+type InfrastructureFault struct {
+	TypeAttrXSI   string `xml:"xsi:type,attr,omitempty"`
+	TypeNamespace string `xml:"xmlns:objtype,attr,omitempty"`
+
+	OverrideTypeAttrXSI   *string `xml:"-"`
+	OverrideTypeNamespace *string `xml:"-"`
+}
+
+// SetXMLType was auto-generated from WSDL.
+func (t *InfrastructureFault) SetXMLType() {
+	if t.OverrideTypeAttrXSI != nil {
+		t.TypeAttrXSI = *t.OverrideTypeAttrXSI
+	} else {
+		t.TypeAttrXSI = "objtype:infrastructureFault"
+	}
+	if t.OverrideTypeNamespace != nil {
+		t.TypeNamespace = *t.OverrideTypeNamespace
+	} else {
+		t.TypeNamespace = "http://www.uid.admin.ch/xmlns/uid-wse-shared/2"
+	}
+}
+
 // SearchConfiguration was auto-generated from WSDL.
 type SearchConfiguration struct {
 	SearchMode                  SearchMode `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 searchMode" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 searchMode" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 searchMode"`
@@ -908,11 +867,8 @@ type SearchConfiguration struct {
 
 // SecurityFault was auto-generated from WSDL.
 type SecurityFault struct {
-	Operation     *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty"`
-	Error         *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty"`
-	ErrorDetail   *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty"`
-	TypeAttrXSI   string  `xml:"xsi:type,attr,omitempty"`
-	TypeNamespace string  `xml:"xmlns:objtype,attr,omitempty"`
+	TypeAttrXSI   string `xml:"xsi:type,attr,omitempty"`
+	TypeNamespace string `xml:"xmlns:objtype,attr,omitempty"`
 
 	OverrideTypeAttrXSI   *string `xml:"-"`
 	OverrideTypeNamespace *string `xml:"-"`
@@ -937,6 +893,77 @@ type ServiceFault struct {
 	Operation   *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 operation,omitempty"`
 	Error       *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 error,omitempty"`
 	ErrorDetail *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse-shared/2 errorDetail,omitempty"`
+}
+
+// AddressSearchType was auto-generated from WSDL.
+type AddressSearchType struct {
+	AddressLine1        *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine1,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine1,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine1,omitempty"`
+	AddressLine2        *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine2,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine2,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 addressLine2,omitempty"`
+	Street              *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty"`
+	HouseNumber         *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 houseNumber,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 houseNumber,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 houseNumber,omitempty"`
+	PostOfficeBoxNumber *uint                  `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 postOfficeBoxNumber,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 postOfficeBoxNumber,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 postOfficeBoxNumber,omitempty"`
+	Town                *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty"`
+	CountryIdISO2       *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 countryIdISO2,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 countryIdISO2,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 countryIdISO2,omitempty"`
+	SwissZipCode        uint                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode"`
+	SwissZipCodeAddOn   *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCodeAddOn,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCodeAddOn,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCodeAddOn,omitempty"`
+	MunicipalityId      int                    `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 municipalityId" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 municipalityId" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 municipalityId"`
+	CantonAbbreviation  CantonAbbreviationType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 cantonAbbreviation" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 cantonAbbreviation" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 cantonAbbreviation"`
+	EGID                uint                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 EGID" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 EGID" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 EGID"`
+	ForeignZipCode      *string                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 foreignZipCode,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 foreignZipCode,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 foreignZipCode,omitempty"`
+}
+
+// CommercialRegisterInformationSearchType was auto-generated from
+// WSDL.
+type CommercialRegisterInformationSearchType struct {
+	CommercialRegisterStatus          *CommercialRegisterStatusType         `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterStatus,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterStatus,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterStatus,omitempty"`
+	CommercialRegisterEntryStatus     *CommercialRegisterEntryStatusType    `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryStatus,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryStatus,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryStatus,omitempty"`
+	CommercialRegisterEntryDate       *Date                                 `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryDate,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryDate,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEntryDate,omitempty"`
+	CommercialRegisterLiquidationDate *Date                                 `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterLiquidationDate,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterLiquidationDate,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterLiquidationDate,omitempty"`
+	CommercialRegisterEnterpriseType  *CommercialRegisterEnterpriseTypeType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEnterpriseType,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEnterpriseType,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 commercialRegisterEnterpriseType,omitempty"`
+}
+
+// DuplicateCandidateType was auto-generated from WSDL.
+type DuplicateCandidateType struct {
+	Rating                       int                              `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 rating" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 rating" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 rating"`
+	Uid                          *UidStructureType                `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uid,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uid,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uid,omitempty"`
+	OrganisationName             *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationName,omitempty"`
+	OrganisationAdditionalName   *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationAdditionalName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationAdditionalName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 organisationAdditionalName,omitempty"`
+	Street                       *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 street,omitempty"`
+	SwissZipCode                 uint                             `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 swissZipCode"`
+	Town                         *string                          `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 town,omitempty"`
+	UidregStatusEnterpriseDetail UidregStatusEnterpriseDetailType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail"`
+	UidregOrganisationType       UidregOrganisationTypeType       `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregOrganisationType" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregOrganisationType" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregOrganisationType"`
+}
+
+// DuplicateFault was auto-generated from WSDL.
+type DuplicateFault struct {
+	Candidates            []*DuplicateCandidateType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 candidates,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 candidates,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 candidates,omitempty"`
+	DuplicateOverrideCode *string                   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 duplicateOverrideCode,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 duplicateOverrideCode,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 duplicateOverrideCode,omitempty"`
+	TypeAttrXSI           string                    `xml:"xsi:type,attr,omitempty"`
+	TypeNamespace         string                    `xml:"xmlns:objtype,attr,omitempty"`
+
+	OverrideTypeAttrXSI   *string `xml:"-"`
+	OverrideTypeNamespace *string `xml:"-"`
+}
+
+// SetXMLType was auto-generated from WSDL.
+func (t *DuplicateFault) SetXMLType() {
+	if t.OverrideTypeAttrXSI != nil {
+		t.TypeAttrXSI = *t.OverrideTypeAttrXSI
+	} else {
+		t.TypeAttrXSI = "objtype:duplicateFault"
+	}
+	if t.OverrideTypeNamespace != nil {
+		t.TypeNamespace = *t.OverrideTypeNamespace
+	} else {
+		t.TypeNamespace = "http://www.uid.admin.ch/xmlns/uid-wse/5"
+	}
+}
+
+// PersonNameType was auto-generated from WSDL.
+type PersonNameType struct {
+	OfficialName *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 officialName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 officialName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 officialName,omitempty"`
+	FirstName    *string `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 firstName,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 firstName,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 firstName,omitempty"`
 }
 
 // UidEntityPublicSearchParameters was auto-generated from WSDL.
@@ -971,36 +998,10 @@ type UidEntitySearchResultItem struct {
 	Extension      *string           `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 extension,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 extension,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 extension,omitempty"`
 }
 
-// UidRegSourceType was auto-generated from WSDL.
-type UidRegSourceType struct {
-	Uid                *UidStructureType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uid,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uid,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uid,omitempty"`
-	RelationType       string            `xml:"http://www.ech.ch/xmlns/eCH-0108/5 relationType" json:"http://www.ech.ch/xmlns/eCH-0108/5 relationType" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 relationType"`
-	RegistrationDate   Date              `xml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationDate" json:"http://www.ech.ch/xmlns/eCH-0108/5 registrationDate" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationDate"`
-	RegistrationStatus string            `xml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 registrationStatus"`
-}
-
-// UidStructureType was auto-generated from WSDL.
-type UidStructureType struct {
-	UidOrganisationIdCategorie UidOrganisationIdCategorieType `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie" json:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationIdCategorie"`
-	UidOrganisationId          *uint                          `xml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty" json:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0097/5 uidOrganisationId,omitempty"`
-}
-
 // UidregInformationPublicSearchType was auto-generated from WSDL.
 type UidregInformationPublicSearchType struct {
 	UidregStatusEnterpriseDetail *UidregStatusEnterpriseDetailType `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregStatusEnterpriseDetail,omitempty"`
 	UidregUidService             *bool                             `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregUidService,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregUidService,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidregUidService,omitempty"`
-}
-
-// UidregInformationType was auto-generated from WSDL.
-type UidregInformationType struct {
-	UidregStatusEnterpriseDetail *UidregStatusEnterpriseDetailType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregStatusEnterpriseDetail,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregStatusEnterpriseDetail,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregStatusEnterpriseDetail,omitempty"`
-	UidregPublicStatus           *UidregPublicStatusType           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregPublicStatus,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregPublicStatus,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregPublicStatus,omitempty"`
-	UidregOrganisationType       *UidregOrganisationTypeType       `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregOrganisationType,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregOrganisationType,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregOrganisationType,omitempty"`
-	UidregLiquidationReason      *UidregLiquidationReasonType      `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregLiquidationReason,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregLiquidationReason,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregLiquidationReason,omitempty"`
-	UidregSource                 []*UidRegSourceType               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregSource,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregSource,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregSource,omitempty"`
-	UidReplacement               *UidStructureType                 `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidReplacement,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidReplacement,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidReplacement,omitempty"`
-	UidregUidService             *bool                             `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregUidService,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregUidService,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregUidService,omitempty"`
-	UidregTranslation            *string                           `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregTranslation,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidregTranslation,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidregTranslation,omitempty"`
 }
 
 // VatRegisterInformationSearchType was auto-generated from WSDL.
@@ -1012,13 +1013,9 @@ type VatRegisterInformationSearchType struct {
 	UidVat             *UidStructureType   `xml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidVat,omitempty" json:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidVat,omitempty" yaml:"http://www.uid.admin.ch/xmlns/uid-wse/5 uidVat,omitempty"`
 }
 
-// VatRegisterInformationType was auto-generated from WSDL.
-type VatRegisterInformationType struct {
-	VatStatus          VatStatusType       `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatStatus" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatStatus" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatStatus"`
-	VatEntryStatus     *VatEntryStatusType `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryStatus,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryStatus,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryStatus,omitempty"`
-	VatEntryDate       *Date               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatEntryDate,omitempty"`
-	VatLiquidationDate *Date               `xml:"http://www.ech.ch/xmlns/eCH-0108/5 vatLiquidationDate,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 vatLiquidationDate,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 vatLiquidationDate,omitempty"`
-	UidVat             *UidStructureType   `xml:"http://www.ech.ch/xmlns/eCH-0108/5 uidVat,omitempty" json:"http://www.ech.ch/xmlns/eCH-0108/5 uidVat,omitempty" yaml:"http://www.ech.ch/xmlns/eCH-0108/5 uidVat,omitempty"`
+// ArrayOfOrganisationType was auto-generated from WSDL.
+type ArrayOfOrganisationType struct {
+	OrganisationType []*OrganisationType `xml:"organisationType,omitempty" json:"organisationType,omitempty" yaml:"organisationType,omitempty"`
 }
 
 // Operation wrapper for GetByUID.
