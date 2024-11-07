@@ -48,7 +48,7 @@ func main() {
 	case "", "-":
 		w = os.Stdout
 	default:
-		f, err := os.OpenFile(opts.Dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+		f, err := os.OpenFile(opts.Dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o644)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -77,6 +77,8 @@ func codegen(w io.Writer, opts options, cli *http.Client) error {
 		return err
 	}
 	f.Close()
+
+	// WSDL representation is ready, now generate Go code
 
 	enc := wsdlgo.NewEncoder(w)
 	enc.SetClient(cli)

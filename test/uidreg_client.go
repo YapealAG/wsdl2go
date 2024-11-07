@@ -13,16 +13,16 @@ var Namespace = "http://www.uid.admin.ch/xmlns/uid-wse"
 
 // UsedNameSpaceMap was auto-generated from WSDL.
 var UsedNamespaces = map[string]string{
-	"tns9": "http://www.ech.ch/xmlns/eCH-0010/7",
-	"tns8": "http://www.ech.ch/xmlns/eCH-0044/4",
-	"tns1": "http://www.uid.admin.ch/xmlns/uid-wse-shared/2",
 	"tns5": "http://www.ech.ch/xmlns/eCH-0007/6",
-	"tns3": "http://www.uid.admin.ch/xmlns/uid-wse/5",
-	"tns4": "http://www.ech.ch/xmlns/eCH-0098/5",
-	"tns7": "http://www.ech.ch/xmlns/eCH-0116/4",
-	"tns2": "http://www.ech.ch/xmlns/eCH-0097/5",
-	"tns6": "http://www.ech.ch/xmlns/eCH-0046/5",
+	"tns1": "http://www.uid.admin.ch/xmlns/uid-wse-shared/2",
+	"tns9": "http://www.ech.ch/xmlns/eCH-0010/7",
 	"tns0": "http://www.ech.ch/xmlns/eCH-0108/5",
+	"tns3": "http://www.uid.admin.ch/xmlns/uid-wse/5",
+	"tns2": "http://www.ech.ch/xmlns/eCH-0097/5",
+	"tns4": "http://www.ech.ch/xmlns/eCH-0098/5",
+	"tns6": "http://www.ech.ch/xmlns/eCH-0046/5",
+	"tns7": "http://www.ech.ch/xmlns/eCH-0116/4",
+	"tns8": "http://www.ech.ch/xmlns/eCH-0044/4",
 }
 
 // NewIPublicServices creates an initializes a IPublicServices.
