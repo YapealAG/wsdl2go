@@ -102,3 +102,10 @@ Types supported:
 Date types are currently defined as strings, need to implement XML Marshaler and Unmarshaler interfaces. The binary ones (hex and base64) are also lacking marshal/unmarshal.
 
 For simple types that have restrictions defined, such as an enumerated list of possible values, we generate the validation function using reflect to compare values. This and the entire API might change anytime, be warned.
+
+
+### Known Issues
+
+1) namespaces are not fully considered
+2) elements can clash with other types - e.g. an element with the name company creates a types with the name companyType which may exist in the schema as well. The tool has been modified so that both types are generated
+3) not all types are generated - some minor fixes may be required 

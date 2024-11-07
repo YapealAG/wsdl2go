@@ -159,7 +159,7 @@ func doRoundTrip(c *Client, setHeaders func(*http.Request), in, out Message) err
 	}
 
 	marshalStructure := struct {
-		XMLName xml.Name `xml:"Envelope"`
+		XMLName xml.Name
 		Body    Message
 	}{Body: out}
 
